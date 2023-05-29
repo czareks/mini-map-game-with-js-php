@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+  }
+  body {
+    overflow: auto;
+    background-color: black;
+  }
+
+  .displaynone{
+    display: none !important;
+  }
+  .displayblock{
+    display: block !important;
+  }
+  
+  .board {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* background-image: url("/gra/img/startcastle.jpg"); */
+    background-image: url("../img/startcastle.jpg");
+    height: 100vh;
+    position: relative;
+    color: white;
+  }
+  
+  .board::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .board h1 {
+    margin-bottom: 2rem;;
+    font-size: 4rem;
+    color: white;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .board ul {
+    list-style: none;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    font-size: 2rem;
+  }
+  .board ul a{
+    text-decoration: none;;
+  }
+  
+  .board ul li {
+    margin: 1rem;
+    background-color: rgb(201, 191, 0);
+    color: white;
+    border-radius: 3rem;
+    padding: 0.5rem 1rem;
+    z-index: 1;
+  }
+  
+  .board ul li:hover {
+    background-color: rgb(107, 112, 112);
+  }
+  .hall, .prison, .tower,.corridor {
+    width: 1920px;
+    height: 965px;
+    color: white;
+    text-align: center;
+}
+
+#player1,#player2,#player3,#player4 {
+  position: absolute;
+  top: 466px;
+  left: 960px;
+  transform: translate(-50%, -50%);
+}
+
+.animation1 {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.animation2{
+    animation: showHide 1s ease-in-out;
+}
+.animation3{
+    animation: showHide 4s ease-in-out;
+}
+
+.scene{
+    width: 100%;
+    height: 100%;
+}
+
+.conversationsHidden{
+  position: absolute;
+  z-index: -100;
+  display: none;
+}
+.conversationsShowed{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  z-index: 9999999;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.59);
+  color: white;
+}
+.flextext{
+  width: 60%;
+  margin: 10% auto;
+  text-align: center;
+  font-size: 1.3rem;
+}
+.flextext p{
+  margin:20px auto;
+}
+
+.flextext a{
+  margin: 20px 0 0 0;
+  color: white;
+  background-color: rgb(201, 191, 0);
+  text-decoration: none;
+  padding: 5px 15px;
+  border-radius: 15px;
+}
+.flextext a:hover{
+  background-color: rgb(107, 112, 112);
+}
+.disabled{
+  background-color: rgb(100, 100, 100) !important;
+  color: black !important;
+  cursor: not-allowed !important;
+}
+
+  @keyframes showHide {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  #inventory {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    display: none; 
+    align-items: center; 
+    justify-content: center; 
+    display: none;
+  }
+  
+  #inventory.open {
+    display: flex; 
+  }
+  
+  #itemsContainer {
+    width: 400px;
+    background-color: rgba(128, 128, 128, 0.5); 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: 10px;
+    padding: 10px;
+  }
+    
+  #itemsContainer img{
+    width: 100%;
+    height: auto;
+  }
